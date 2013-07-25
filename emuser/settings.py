@@ -12,8 +12,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/tmp/emuser.db',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/tmp/emuser.db',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -128,8 +130,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'social_auth',
     'record',
+    'social_auth',
     'profile',
 )
 

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="main">
+    <h1> {{ user.username }}'s courses record </h1>
+    {% include "_source.html" with source=coursera source_name='coursera' %}
+    {% include "_source.html" with source=codecademy source_name='codecademy' %}
+    {% include "_source.html" with source=codeschool source_name='codeschool' %}
+</div>
+{% endblock %}

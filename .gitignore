@@ -29,5 +29,11 @@ nosetests.xml
 # Translations
 *.mo
 
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
 # Vim
 *.sw[po]
+test.db
