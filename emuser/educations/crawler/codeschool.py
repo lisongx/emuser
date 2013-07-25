@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-
 
 import requests
+import dateutil.parser
 from lxml import etree
 
 
@@ -55,11 +56,12 @@ class CodeSchoolClient(object):
                 time = n.xpath("./div/p/time")[0]
                 datetime = time.get("datetime")
             except IndexError:
-                datetime = ""
+                # FIXME 你懂的
+                datetime = "1989/8/6"
             yield dict(
                 source='codeschool',
                 subject=img.get('alt'),
                 url=a.get('href'),
                 picture_url=img.get('src'),
-                datetime=datetime,
+                datetime=dateutil.parser.parse(datetime),
             )
