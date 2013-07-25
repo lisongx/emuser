@@ -42,8 +42,8 @@ class CodeSchoolClient(object):
         nodes = tree.xpath("/html/body/section/div/div[1]/ol/li")
         return nodes
 
-    def yield_normalized_courses(self):
-        nodes = self.fetch_list('140490')
+    def yield_normalized_courses(self, uid):
+        nodes = self.fetch_list(uid)
         for n in nodes:
             img = n.xpath("./img")[0]
             a = n.xpath("./div/h3/a")[0]
