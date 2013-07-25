@@ -52,11 +52,12 @@ def coursera(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         client = CourseraClient()
-        client.login(username, password)
-        print "start fetch"
-        courses = client.yield_normalized_courses()
-        for course in courses:
-            Record.objects.create(user=user, **course)
-        return HttpResponseRedirect('/courses/')
-    else:
-        return HttpResponseBadRequest()
+        if client.login(username, password):
+            courses = client.yield_normalized_courses()
+            if courses:
+                user.records.filter(source='coursera').delete()
+                for course in courses:
+                    Record.objects.create(user=user, **course)
+                return HttpResponseRedirect('/courses/')
+
+    return HttpResponseBadRequest()
