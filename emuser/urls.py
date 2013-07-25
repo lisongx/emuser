@@ -14,4 +14,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    #url(r'^resume/', include(admin.stie.urls)),
+    url(r'^resume/(?P<user_id>\d+)/$', 'record.views.resume'),
 )
