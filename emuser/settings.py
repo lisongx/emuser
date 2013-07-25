@@ -15,10 +15,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'test.db',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
+        'ENGINE': 'django.db.backends.sqlite3',
         'USER': '',
         'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -114,6 +115,10 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'social_auth.context_processors.social_auth_by_name_backends',
+    'django.contrib.auth.context_processors.auth',
+)
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -126,7 +131,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'record',
-    'social_auth'
+    'social_auth',
+    'profile',
 )
 DOUBAN2_CONSUMER_KEY = os.environ["DOUBAN_API_KEY"]
 DOUBAN2_CONSUMER_SECRET = os.environ["DOUBAN_API_SECRET"]
@@ -135,6 +141,10 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.douban.DoubanBackend2',
     'django.contrib.auth.backends.ModelBackend',
 )
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_ERROR_URL    = '/login-error/'
+SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -163,3 +173,5 @@ LOGGING = {
         },
     }
 }
+
+AUTH_PROFILE_MODULE = 'profile.Profile'

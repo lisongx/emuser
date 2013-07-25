@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
+    url(r'', include('social_auth.urls')),
     # url(r'^$', 'emuser.views.home', name='home'),
     # url(r'^emuser/', include('emuser.foo.urls')),
 
@@ -14,7 +14,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    #url(r'^resume/', include(admin.stie.urls)),
     url(r'^resume/(?P<user_id>\d+)/$', 'record.views.resume'),
     url(r'^/?$', 'record.views.index'),
 )

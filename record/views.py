@@ -30,7 +30,7 @@ def resume(request, user_id):
     for d in data:
         ret_dict.setdefault(d['fields']['source'],[]).append(d['fields'])
         del ret_dict.setdefault(d['fields']['source'],[])[-1]['display']
-    return HttpResponse(str(convert(ret_dict)).replace("'", '"'), mimetype='application/json')
+    return HttpResponse('['+str(convert(ret_dict)).replace("'", '"')+']', mimetype='application/json')
 
 
 from django.shortcuts import render_to_response
