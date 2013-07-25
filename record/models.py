@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Record(models.Model):
 
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, related_name='records' )
     source = models.CharField(max_length=32)
     subject = models.CharField(max_length=128)
     url = models.URLField(max_length=128)

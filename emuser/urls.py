@@ -5,7 +5,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'', include('social_auth.urls')),
     # url(r'^$', 'emuser.views.home', name='home'),
     # url(r'^emuser/', include('emuser.foo.urls')),
 
@@ -13,6 +12,9 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^/?$', 'record.views.index'),
+    url(r'^courses/', include('record.urls')),
+
+    url(r'', include('social_auth.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 )
