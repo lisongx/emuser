@@ -4,7 +4,6 @@ import requests
 from lxml import etree
 
 
-
 class CodeSchoolClient(object):
     CODESCHOOL_HOME_URL = 'https://www.codeschool.com'
     CODESCHOOL_LOGIN_URL = 'http://www.codeschool.com/users/sign_in'
@@ -30,7 +29,7 @@ class CodeSchoolClient(object):
             'authenticity_token': self.authenticity_token,
             'user[login]': username,
             'user[password]': password,
-        }   
+        }
         response = self.client.post(self.CODESCHOOL_LOGIN_URL, data=post_data, verify=False)
         response.raise_for_status()
         return response.ok
