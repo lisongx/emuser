@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     'record',
     'profile',
 )
+
 DOUBAN2_CONSUMER_KEY = os.environ["DOUBAN_API_KEY"]
 DOUBAN2_CONSUMER_SECRET = os.environ["DOUBAN_API_SECRET"]
 
