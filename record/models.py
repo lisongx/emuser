@@ -11,5 +11,5 @@ class Record(models.Model):
     url = models.URLField(max_length=128)
     picture_url = models.URLField(max_length=128, null=True)
     datetime =models.DateTimeField()
-    display = models.BoolField(default=True)
+    display = models.BooleanField(default=True)
     
