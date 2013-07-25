@@ -56,7 +56,6 @@ def convert(data):
         return data
 
 def resume(request, user_id):
-    user_id=2
     records = Record.objects.filter(user=int(user_id)).all()
     data = serializers.serialize('json', records)
     data = json.loads(data)
