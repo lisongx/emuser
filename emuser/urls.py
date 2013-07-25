@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
+    url(r'', include('social_auth.urls')),
     # url(r'^$', 'emuser.views.home', name='home'),
     # url(r'^emuser/', include('emuser.foo.urls')),
 
