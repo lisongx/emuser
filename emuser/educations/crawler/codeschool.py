@@ -32,25 +32,34 @@ class CodeSchoolClient(object):
         }
         response = self.client.post(self.CODESCHOOL_LOGIN_URL, data=post_data, verify=False)
         response.raise_for_status()
+        tree = etree.HTML(response.text)
+        node = tree.xpath("/html/body/nav/div/ul/li[5]/a")[0]
+        self.my_report_card_url = node.get("href")
         return response.ok
 
-    def fetch_list(self, uid):
-        course_url = self.CODESCHOOL_COURSE_URL % str(uid)
+    def fetch_list(self):
+        course_url = self.CODESCHOOL_HOME_URL + self.my_report_card_url
         response = self.client.get(course_url, verify=False)
         tree = etree.HTML(response.text)
         nodes = tree.xpath("/html/body/section/div/div[1]/ol/li")
+        unfinished_nodes = tree.xpath("/html/body/section/div/div[2]/ol/li")
+        nodes += unfinished_nodes
         return nodes
 
-    def yield_normalized_courses(self, uid):
-        nodes = self.fetch_list(uid)
+    def yield_normalized_courses(self):
+        nodes = self.fetch_list()
         for n in nodes:
             img = n.xpath("./img")[0]
             a = n.xpath("./div/h3/a")[0]
-            time = n.xpath("./div/p/time")[0]
+            try:
+                time = n.xpath("./div/p/time")[0]
+                datetime = time.get("datetime")
+            except IndexError:
+                datetime = ""
             yield dict(
                 source='codeschool',
                 subject=img.get('alt'),
                 url=a.get('href'),
                 picture_url=img.get('src'),
-                datetime=time.get('datetime'),
+                datetime=datetime,
             )
