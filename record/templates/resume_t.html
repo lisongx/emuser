@@ -1,0 +1,83 @@
+{% verbatim %}
+<div id="cv" class="instaFade">
+
+  <div class="mainDetails">
+    <div id="headshot" class="quickFade">
+      <img ng-src="{{user.avatar}}" alt="{{user.name}}" />
+    </div>
+
+    <div id="name">
+      <h1 class="quickFade delayTwo">{{user.name}}</h1>
+      <h3 class="quickFade delayThree">{{user.loc_name}}</h3>
+    </div>
+
+    <div id="contactDetails" class="quickFade delayFour">
+      <p>{{user.desc}}</p>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div id="mainArea" class="quickFade delayFive">
+    <div class="sectionTitle">
+      <h1>My Graph</h1>
+    </div>
+    <section>
+      <article>
+        <piechart></piechart>
+        <barchart></barchart>
+      </article>
+      <div class="clear"></div>
+    </section>
+    <div class="sectionTitle">
+      <h1>Coursera</h1>
+    </div>
+    <section ng-repeat="record in coursera" >
+      <article>
+        <div class="sectionContent">
+          <img ng-src="{{record.picture_url}}" alt="" />
+          <h2>{{record.name }}</h2>
+        </div>
+        <div class="sectionDate">
+          <p><a href="{{record.url}}">{{record.subject}}</a></p>
+          <time datetime={{record.datetime}}>{{record.datetime|  date:'yyyy年 MM月 dd日'}}</time>
+        </div>
+      </article>
+      <div class="clear"></div>
+    </section>
+
+    <div class="sectionTitle">
+      <h1>CodeSchool</h1>
+    </div>
+    <section ng-repeat="record in codeschool" >
+      <article>
+        <div class="sectionContent">
+          <img ng-src="{{record.picture_url}}" alt="" />
+          <h2>{{record.name }}</h2>
+        </div>
+        <div class="sectionDate">
+          <p><a href="{{record.url}}">{{record.subject}}</a></p>
+          <time datetime={{record.datetime}}>{{record.datetime|  date:'yyyy年 MM月 dd日'}}</time>
+        </div>
+      </article>
+      <div class="clear"></div>
+    </section>
+
+    <div class="sectionTitle">
+      <h1>codecademy</h1>
+    </div>
+    <section ng-repeat="record in codecademy" >
+      <article>
+        <div class="sectioncontent">
+          <img ng-src="{{record.picture_url}}" alt="" />
+          <h2>{{record.name }}</h2>
+        </div>
+        <div class="sectiondate">
+          <p><a href="{{record.url}}">{{record.subject}}</a></p>
+          <time datetime={{record.datetime}}>{{record.datetime|  date:'yyyy年 mm月 dd日'}}</time>
+        </div>
+      </article>
+      <div class="clear"></div>
+    </section>
+  </div>
+</div>
+{% endverbatim %}

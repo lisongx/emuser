@@ -1,0 +1,467 @@
+/* line 1, ../../app/styles/style.scss */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+/* line 10, ../../app/styles/style.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 14, ../../app/styles/style.scss */
+html, body {
+  font-family: 'Lato', helvetica, arial, sans-serif;
+  font-size: 16px;
+  color: #222;
+}
+
+/* line 16, ../../app/styles/style.scss */
+.clear {
+  clear: both;
+}
+
+/* line 18, ../../app/styles/style.scss */
+h1 {
+  font-size: 28px;
+  border: none;
+}
+
+/* line 23, ../../app/styles/style.scss */
+h1, h3 {
+  margin-top: 8px;
+}
+
+/* line 27, ../../app/styles/style.scss */
+p {
+  font-size: 1em;
+  line-height: 1.4em;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: #444;
+  font-family: Optima, Georgia, STSong, serif;
+}
+
+/* line 36, ../../app/styles/style.scss */
+#cv {
+  width: 90%;
+  max-width: 800px;
+  background: #f3f3f3;
+  margin: 30px auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  opacity: 0.95;
+}
+
+/* line 46, ../../app/styles/style.scss */
+.mainDetails {
+  padding: 25px 35px;
+  border-bottom: 2px solid #cf8a05;
+  background: #6495ed;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: #fff;
+}
+
+/* line 55, ../../app/styles/style.scss */
+#name h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+  margin-bottom: -6px;
+  color: #fff;
+}
+
+/* line 63, ../../app/styles/style.scss */
+#name h2 {
+  font-size: 2em;
+  margin-left: 2px;
+  font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+}
+
+/* line 69, ../../app/styles/style.scss */
+#mainArea {
+  padding: 0 40px;
+}
+
+/* line 73, ../../app/styles/style.scss */
+#headshot {
+  width: 12.5%;
+  float: left;
+  margin-right: 30px;
+}
+
+/* line 79, ../../app/styles/style.scss */
+#headshot img {
+  width: 100%;
+  height: auto;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+/* line 86, ../../app/styles/style.scss */
+#name {
+  float: left;
+}
+
+/* line 90, ../../app/styles/style.scss */
+#contactDetails {
+  float: right;
+}
+
+/* line 94, ../../app/styles/style.scss */
+#contactDetails ul {
+  list-style-type: none;
+  font-size: 0.9em;
+  margin-top: 2px;
+}
+
+/* line 100, ../../app/styles/style.scss */
+#contactDetails ul li {
+  margin-bottom: 3px;
+  color: #444;
+}
+
+/* line 105, ../../app/styles/style.scss */
+#contactDetails ul li a, a[href^=tel] {
+  color: #444;
+  text-decoration: none;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -ms-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+
+/* line 115, ../../app/styles/style.scss */
+#contactDetails ul li a:hover {
+  color: #cf8a05;
+}
+
+/* line 120, ../../app/styles/style.scss */
+section {
+  padding: 0 20px;
+  border: 1px solid #eee;
+  background: #fff;
+  box-shadow: 0 0 1px #ccc;
+  margin: 0 10px;
+}
+
+/* line 128, ../../app/styles/style.scss */
+section:first-child {
+  border-top: 0;
+}
+
+/* line 132, ../../app/styles/style.scss */
+section:last-child {
+  padding: 20px 0 10px;
+}
+
+/* line 136, ../../app/styles/style.scss */
+time {
+  font-size: 18px;
+  color: #cf8a05;
+}
+
+/* line 141, ../../app/styles/style.scss */
+.sectionContent {
+  float: left;
+  width: 35%;
+  margin: 15px 0;
+}
+
+/* line 147, ../../app/styles/style.scss */
+.sectionDate {
+  margin: 15px 0;
+  float: left;
+  width: 60%;
+}
+
+/* line 153, ../../app/styles/style.scss */
+.sectionTitle h1 {
+  font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+  font-style: italic;
+  font-size: 1.5em;
+  color: #cf8a05;
+}
+
+/* line 160, ../../app/styles/style.scss */
+.sectionContent h2 {
+  font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  margin-bottom: -2px;
+}
+
+/* line 166, ../../app/styles/style.scss */
+.subDetails {
+  font-size: 0.8em;
+  font-style: italic;
+  margin-bottom: 3px;
+}
+
+/* line 172, ../../app/styles/style.scss */
+.keySkills {
+  list-style-type: none;
+  -moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
+  margin-bottom: 20px;
+  font-size: 1em;
+  color: #444;
+}
+
+/* line 182, ../../app/styles/style.scss */
+.keySkills ul li {
+  margin-bottom: 3px;
+}
+
+@media all and (min-width: 602px) and (max-width: 800px) {
+  /* line 187, ../../app/styles/style.scss */
+  #headshot {
+    display: none;
+  }
+
+  /* line 191, ../../app/styles/style.scss */
+  .keySkills {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+@media all and (max-width: 601px) {
+  /* line 199, ../../app/styles/style.scss */
+  #cv {
+    width: 95%;
+    margin: 10px auto;
+    min-width: 280px;
+  }
+
+  /* line 205, ../../app/styles/style.scss */
+  #headshot {
+    display: none;
+  }
+
+  /* line 209, ../../app/styles/style.scss */
+  #name, #contactDetails {
+    float: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* line 215, ../../app/styles/style.scss */
+  .sectionTitle, .sectionContent {
+    float: none;
+    width: 100%;
+  }
+
+  /* line 220, ../../app/styles/style.scss */
+  .sectionTitle {
+    margin-left: -2px;
+    font-size: 1.25em;
+  }
+
+  /* line 225, ../../app/styles/style.scss */
+  .keySkills {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+@media all and (max-width: 480px) {
+  /* line 233, ../../app/styles/style.scss */
+  .mainDetails {
+    padding: 15px 15px;
+  }
+
+  /* line 237, ../../app/styles/style.scss */
+  section {
+    padding: 15px 0 0;
+  }
+
+  /* line 241, ../../app/styles/style.scss */
+  #mainArea {
+    padding: 0 25px;
+  }
+
+  /* line 246, ../../app/styles/style.scss */
+  .keySkills {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+  }
+
+  /* line 252, ../../app/styles/style.scss */
+  #name h1 {
+    line-height: .8em;
+    margin-bottom: 4px;
+  }
+}
+@media print {
+  /* line 259, ../../app/styles/style.scss */
+  #cv {
+    width: 100%;
+  }
+}
+@-webkit-keyframes reset {
+  /* line 265, ../../app/styles/style.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 268, ../../app/styles/style.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fade-in {
+  /* line 274, ../../app/styles/style.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 277, ../../app/styles/style.scss */
+  40% {
+    opacity: 0;
+  }
+
+  /* line 280, ../../app/styles/style.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes reset {
+  /* line 286, ../../app/styles/style.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 289, ../../app/styles/style.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fade-in {
+  /* line 295, ../../app/styles/style.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 298, ../../app/styles/style.scss */
+  40% {
+    opacity: 0;
+  }
+
+  /* line 301, ../../app/styles/style.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes reset {
+  /* line 307, ../../app/styles/style.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 310, ../../app/styles/style.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  /* line 316, ../../app/styles/style.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 319, ../../app/styles/style.scss */
+  40% {
+    opacity: 0;
+  }
+
+  /* line 322, ../../app/styles/style.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+/* line 327, ../../app/styles/style.scss */
+.instaFade {
+  -webkit-animation-name: reset, fade-in;
+  -webkit-animation-duration: .5s;
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-name: reset, fade-in;
+  -moz-animation-duration: .5s;
+  -moz-animation-timing-function: ease-in;
+  animation-name: reset, fade-in;
+  animation-duration: .5s;
+  animation-timing-function: ease-in;
+}
+
+/* line 341, ../../app/styles/style.scss */
+.quickFade {
+  -webkit-animation-name: reset, fade-in;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-name: reset, fade-in;
+  -moz-animation-duration: 1.5s;
+  -moz-animation-timing-function: ease-in;
+  animation-name: reset, fade-in;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+}
+
+/* line 355, ../../app/styles/style.scss */
+.delayOne {
+  -webkit-animation-delay: 0, .3s;
+  -moz-animation-delay: 0, .3s;
+  animation-delay: 0, .3s;
+}
+
+/* line 361, ../../app/styles/style.scss */
+.delayTwo {
+  -webkit-animation-delay: 0, 1s;
+  -moz-animation-delay: 0, 1s;
+  animation-delay: 0, 1s;
+}
+
+/* line 367, ../../app/styles/style.scss */
+.delayThree {
+  -webkit-animation-delay: 0, 0.5s;
+  -moz-animation-delay: 0, 0.5s;
+  animation-delay: 0, 0.5s;
+}
+
+/* line 373, ../../app/styles/style.scss */
+.delayFour {
+  -webkit-animation-delay: 0, 1s;
+  -moz-animation-delay: 0, 1s;
+  animation-delay: 0, 1s;
+}
+
+/* line 379, ../../app/styles/style.scss */
+.delayFive {
+  -webkit-animation-delay: 0, 1.5s;
+  -moz-animation-delay: 0, 1.5s;
+  animation-delay: 0, 1.5s;
+}
+
+/*blur*/
+/* line 390, ../../app/styles/style.scss */
+.blur {
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  opacity: 0.7;
+}
