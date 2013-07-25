@@ -8,6 +8,8 @@ class UdacityClient(object):
     LOGIN_URL = "https://udacity.com/api/session"
     LOGIN_REFERER_URL = "https://www.udacity.com"
 
+    LIST_URL = ""
+    
     def __init__(self):
         self.client = requests.session()
 
@@ -21,13 +23,19 @@ class UdacityClient(object):
 
     def login(self, email, password):
         self.client.get(self.LOGIN_REFERER_URL, verify=False)
-
         headers = {"Referer": self.LOGIN_REFERER_URL,
                    "X-Requested-With": "XMLHttpRequest",
                    "X-XSRFToken": self.xsrf_token}
-        data = {'udacity': {"email": email, "password": password}}
+        data = {'udacity':{"email": email, "password": password}}
 
         response = self.client.post(self.LOGIN_URL, data=data, headers=headers,
-                                    verify=False)
+                verify=False)
         response.raise_for_status()
         return response.ok
+
+    def fetch_list(self):
+        pass
+
+if __name__ == '__main__':
+    client = UdacityClient()
+    print client.login('','')
