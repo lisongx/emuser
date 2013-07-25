@@ -1,5 +1,20 @@
-# Django settings for emuser project.
 import os
+from os.path import abspath, basename, dirname, join, normpath
+from sys import path
+
+########## PATH CONFIGURATION
+# Absolute filesystem path to the Django project directory:
+DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+
+# Absolute filesystem path to the top-level project folder:
+SITE_ROOT = dirname(DJANGO_ROOT)
+
+# Site name:
+SITE_NAME = basename(DJANGO_ROOT)
+
+# Add our project to our pythonpath, this way we don't need to type our project
+# name in our dotted import paths:
+path.append(DJANGO_ROOT)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -70,10 +85,11 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+     normpath(join(SITE_ROOT, 'static')),
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
+
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -129,8 +145,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'social_auth',
     'record',
-    'social_auth'
+    'profile',
 )
 DOUBAN2_CONSUMER_KEY = os.environ["DOUBAN_API_KEY"]
 DOUBAN2_CONSUMER_SECRET = os.environ["DOUBAN_API_SECRET"]
@@ -171,3 +188,5 @@ LOGGING = {
         },
     }
 }
+
+AUTH_PROFILE_MODULE = 'profile.Profile'

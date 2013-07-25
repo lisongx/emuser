@@ -9,7 +9,7 @@ class Record(models.Model):
     source = models.CharField(max_length=32)
     subject = models.CharField(max_length=128)
     url = models.URLField(max_length=128)
-    picture_url = models.URLField(max_length=128, null=True)
+    picture_url = models.URLField(max_length=128, null=True, blank=True)
     datetime =models.DateTimeField()
     display = models.BooleanField(default=True)
     
