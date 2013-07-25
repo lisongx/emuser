@@ -3,12 +3,5 @@ Django==1.5.1
 distribute==0.6.34
 lxml==3.2.1
 requests==1.2.3
-<<<<<<< HEAD
-django-social-auth==0.7.25
-=======
 python-dateutil==2.1
-<<<<<<< HEAD
->>>>>>> 7a380b92eb3f8e28fcb02df46e2b3182f780548c
-=======
 django-social-auth==0.7.25
->>>>>>> 17a528bfa3bc275c17f31596ae2a72e1b4473946
