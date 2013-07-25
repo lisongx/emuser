@@ -42,4 +42,4 @@ class UdacityClient(object):
 
 if __name__ == '__main__':
     client = UdacityClient()
-    print client.login('shanzi@diumoo.net','find1way!')
+    print client.login('','')
