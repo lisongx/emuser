@@ -1,46 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>emuser | {{ user.username }} </title>
-</head>
-<body>
-    <div class="main">
-
-        <h1> {{ user.username }}'s courses record </h1>
-        <div class="coursera">
-            <div class="summary">
-                You have finished {{ coursera.count }} courses at coursera.
-            </div>
-            {% if coursera %}
-            <div class="courses">
-            <ul>
-                {% for course in coursera %}
-                <li>{{course.subject}}</li>
-                {% endfor %}
-            </ul>
-            </div>
-            {% endif %} 
-            <div class="action">
-                <form action="coursera" method="POST" accept-charset="utf-8">
-                    <fieldset>
-                        {% csrf_token %}
-                        <legend>
-                            {% if coursera %}
-                            Refresh record
-                            {% else %}
-                            Get record
-                            {% endif %}
-                        </legend>
-                        <input type="text" name="username" value="{{ user.username }}" placeholder="password">
-                        <input type="password" name="password" value="" placeholder="password">
-                        <input type="submit">
-                    </fieldset>
-                </form>
-
-            </div>
-        </div>
-    </div>
-    
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<div class="main">
+    <h1> {{ user.username }}'s courses record </h1>
+    {% include "_source.html" with source=coursera source_name='coursera' %}
+    {% include "_source.html" with source=codecademy source_name='codecademy' %}
+    {% include "_source.html" with source=codeschool source_name='codeschool' %}
+</div>
+{% endblock %}

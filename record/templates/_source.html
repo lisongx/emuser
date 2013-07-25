@@ -1,0 +1,32 @@
+<div class="source">
+    <h3 class="summary">
+        You have finished {{ source.count }} courses at {{ source_name }}.
+    </h3>
+    {% if coursera %}
+    <div class="courses">
+        <ul>
+            {% for course in source %}
+            <li>{{course.subject}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %} 
+    <div class="action">
+        <form action="{{ source_name }}" method="POST" accept-charset="utf-8">
+            <fieldset>
+                {% csrf_token %}
+                <legend>
+                    {% if source %}
+                    Refresh record
+                    {% else %}
+                    Get record
+                    {% endif %}
+                </legend>
+                <input type="text" name="username" value="{{ user.username }}" placeholder="password">
+                <input type="password" name="password" value="" placeholder="password">
+                <input type="submit" class="btn">
+            </fieldset>
+        </form>
+
+    </div>
+</div>

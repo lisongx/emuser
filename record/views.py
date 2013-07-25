@@ -1,15 +1,17 @@
+from django.utils import simplejson as json
+from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseBadRequest, HttpResponseRedirect, HttpResponse
 
 from emuser.educations.crawler.coursera import CourseraClient
+from emuser.educations.crawler.codecademy import CodecademyClient
+from emuser.educations.crawler.codeschool import CodeSchoolClient 
+
 from record.models import Record
-from django.utils import simplejson
-from django.core import serializers
 
 import collections
-import json
 
 
 def index(request):
@@ -42,22 +44,41 @@ def resume(request, user_id):
 def courses(request):
     user = request.user
     coursera = user.records.filter(source='coursera')
+    codecademy = user.records.filter(source='codecademy')
+    codeschool = user.records.filter(source='codeschool')
     return render_to_response('courses.html',locals(),
             context_instance=RequestContext(request))
 
-@login_required
-def coursera(request):
+
+
+def _fetch_courses(request, client, source):
     if request.POST:
         user = request.user
         username = request.POST.get('username')
         password = request.POST.get('password')
-        client = CourseraClient()
+        print "start login"
         if client.login(username, password):
+            print "start fetch"
             courses = client.yield_normalized_courses()
             if courses:
-                user.records.filter(source='coursera').delete()
+                user.records.filter(source=source).delete()
                 for course in courses:
                     Record.objects.create(user=user, **course)
                 return HttpResponseRedirect('/courses/')
 
     return HttpResponseBadRequest()
+
+@login_required
+def coursera(request):
+    client = CourseraClient()
+    return _fetch_courses(request, client, 'coursera')
+
+@login_required
+def codecademy(request):
+    client = CodecademyClient()
+    return _fetch_courses(request, client, 'codecademy')
+
+@login_required
+def codeschool(request):
+    client = CodeSchoolClient()
+    return _fetch_courses(request, client, 'codeschool')

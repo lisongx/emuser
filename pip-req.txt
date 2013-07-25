@@ -5,3 +5,4 @@ lxml==3.2.1
 requests==1.2.3
 python-dateutil==2.1
 django-social-auth==0.7.25
+git+git://github.com/bear/parsedatetime.git@7c5e6a08#egg=parsedatetime

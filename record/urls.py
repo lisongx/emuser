@@ -10,4 +10,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^$', 'record.views.courses'),
     url(r'^coursera/?$', 'record.views.coursera'),
+    url(r'^codecademy/?$', 'record.views.codecademy'),
+    url(r'^codeschool/?$', 'record.views.codeschool'),
 )
