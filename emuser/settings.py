@@ -12,8 +12,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'test.db',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/tmp/emuser.db',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -128,8 +130,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'social_auth',
     'record',
+    'social_auth',
     'profile',
 )
 DOUBAN2_CONSUMER_KEY = os.environ["DOUBAN_API_KEY"]
@@ -139,10 +141,12 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.douban.DoubanBackend2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_ERROR_URL    = '/login-error/'
 SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
