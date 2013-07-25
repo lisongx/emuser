@@ -4,3 +4,4 @@ distribute==0.6.34
 lxml==3.2.1
 requests==1.2.3
 django-social-auth==0.7.25
+python-dateutil==2.1
