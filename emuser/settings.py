@@ -128,8 +128,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'social_auth',
     'record',
-    'social_auth'
+    'profile',
 )
 DOUBAN2_CONSUMER_KEY = os.environ["DOUBAN_API_KEY"]
 DOUBAN2_CONSUMER_SECRET = os.environ["DOUBAN_API_SECRET"]
@@ -170,3 +171,5 @@ LOGGING = {
         },
     }
 }
+
+AUTH_PROFILE_MODULE = 'profile.Profile'
