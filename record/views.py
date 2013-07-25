@@ -6,10 +6,6 @@ from django.http import HttpResponse
 import collections
 import json
 
-
-#test_file = "./test_case.json"
-#f = open(test_file,"r")
-#f.readline
 def convert(data):
     if isinstance(data, basestring):
         return str(data)
