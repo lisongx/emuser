@@ -56,6 +56,7 @@ class CodeSchoolClient(object):
                 time = n.xpath("./div/p/time")[0]
                 datetime = time.get("datetime")
             except IndexError:
+                # FIXME 你懂的
                 datetime = "1989/8/6"
             yield dict(
                 source='codeschool',
