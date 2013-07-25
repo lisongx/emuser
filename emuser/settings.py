@@ -120,12 +120,12 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_auth'
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'record',
+    'social_auth'
 )
 DOUBAN2_CONSUMER_KEY = os.environ["DOUBAN_API_KEY"]
 DOUBAN2_CONSUMER_SECRET = os.environ["DOUBAN_API_SECRET"]
