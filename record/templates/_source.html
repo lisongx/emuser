@@ -1,18 +1,18 @@
-<div class="source">
+<div class="source" style="background:#fefefe;border:solid 1px #eee;padding:10px;">
     <h3 class="summary">
         You have finished {{ source.count }} courses at {{ source_name }}.
     </h3>
     {% if coursera %}
-    <div class="courses">
-        <ul>
+    <div class="courses" style="border:solid 1px #eee;padding:5px;">
+        <ul >
             {% for course in source %}
             <li>{{course.subject}}</li>
             {% endfor %}
         </ul>
     </div>
     {% endif %} 
-    <div class="action">
-        <form action="{{ source_name }}" method="POST" accept-charset="utf-8">
+    <div class="breadcrumb">
+        <form action="{{ source_name }}" class="form-inline" method="POST" accept-charset="utf-8">
             <fieldset>
                 {% csrf_token %}
                 <legend>
@@ -24,9 +24,8 @@
                 </legend>
                 <input type="text" name="username" value="{{ user.username }}" placeholder="password">
                 <input type="password" name="password" value="" placeholder="password">
-                <input type="submit" class="btn">
+                <input type="submit" class="btn btn-info">
             </fieldset>
         </form>
-
     </div>
 </div>
