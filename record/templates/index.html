@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>emuers</title>
-</head>
-<body>
-  
-<a href="{% url 'socialauth_begin' 'douban2' %}">login in with douban</a>
+{% extends "base.html" %}
+{% load staticfiles %}
 
-</body>
-</html>
+
+
+{% block content %}
+<div class="row">
+  <div class="span2 offset1">
+    <img src="/static/img/icon.png"  class="img-rounded">
+  </div>
+  <div class="span8 well">
+  <h1>
+    Hello, 你好, Bonjour, Hola, Ciao!来生成你的在线教育简历吧!
+  </h1>
+  </div>
+</div>
+
+
+<div class="row" id="hello">
+  <div class="span10 offset1">
+  <div class="alert alert-success">
+    <p>现在 <a href="/login/douban2/" class="btn btn-large btn-primary">用你的豆瓣帐号登录</a> ，就可以生成你的<b>Coursera</b>, <b>Udacity</b>, <b>Codeschool</b>和<b>Codecademy</b>的全部教育经历。 </p>
+    </div>
+  </div>
+  
+</div>
+
+
+{% endblock %}
