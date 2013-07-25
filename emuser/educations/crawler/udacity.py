@@ -3,17 +3,13 @@ import random
 import requests
 
 
-chars = lambda from_, to: [chr(n) for n in range(ord(from_), ord(to) + 1)]
-
-
 class UdacityClient(object):
 
     LOGIN_URL = "https://udacity.com/api/session"
     LOGIN_REFERER_URL = "https://www.udacity.com"
 
-
     LIST_URL = ""
-
+    
     def __init__(self):
         self.client = requests.session()
 

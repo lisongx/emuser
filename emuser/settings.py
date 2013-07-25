@@ -1,4 +1,5 @@
 # Django settings for emuser project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,7 +13,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'emuser.db',                      # Or path to database file if using sqlite3.
+        'NAME': 'test.db',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -120,13 +121,20 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_auth'
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'record',
 )
+DOUBAN2_CONSUMER_KEY = os.environ["DOUBAN_API_KEY"]
+DOUBAN2_CONSUMER_SECRET = os.environ["DOUBAN_API_SECRET"]
 
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.contrib.douban.DoubanBackend2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
