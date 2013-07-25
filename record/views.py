@@ -1,4 +1,3 @@
-# Create your views here.
 from record.models import Record
 from django.utils import simplejson
 from django.core import serializers
@@ -27,9 +26,6 @@ def resume(request, user_id):
         ret_dict.setdefault(d['fields']['source'],[]).append(d['fields'])
         del ret_dict.setdefault(d['fields']['source'],[])[-1]['display']
     return HttpResponse('['+str(convert(ret_dict)).replace("'", '"')+']', mimetype='application/json')
-
-
-from django.shortcuts import render_to_response
 
 def index(request):
     return render_to_response('index.html')
