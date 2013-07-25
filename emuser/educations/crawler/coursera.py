@@ -1,6 +1,7 @@
 import random
 
 import requests
+import dateutil.parser
 
 
 chars = lambda from_, to: [chr(n) for n in range(ord(from_), ord(to) + 1)]
@@ -37,7 +38,31 @@ class CourseraClient(object):
         response.raise_for_status()
         return response.ok
 
-    def fetch_list(self):
+    def _fetch_list(self):
         response = self.client.get(self.LIST_URL)
         response.raise_for_status()
         return response.json()
+
+    def yield_normalized_courses(self):
+        for course_record in self._fetch_list():
+            grades_release_date = self._find_grades_release_date(course_record)
+            if not grades_release_date or not course_record["display"]:
+                continue
+
+            course_home_templ = "https://www.coursera.org/course/%s"
+
+            normalized_item = dict(
+                subject=course_record["name"],
+                source="coursera",
+                url=course_home_templ % course_record["short_name"],
+                picture_url=course_record["photo"],
+                datetime=grades_release_date,
+            )
+            yield normalized_item
+
+    def _find_grades_release_date(self, course_record):
+        release_dates = [dateutil.parser.parse(course["grades_release_date"])
+                         for course in course_record["courses"]
+                         if course["grades_release_date"]]
+        if release_dates:
+            return max(release_dates)
